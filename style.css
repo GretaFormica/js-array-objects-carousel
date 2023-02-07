@@ -8,6 +8,12 @@
 
 img {
     width: 70vh;
+    height: 80vh;
 
-    object-fit: cover;
+    object-fit: contain;
+}
+
+.next,
+.prev {
+    cursor: pointer;
 }
