@@ -46,7 +46,7 @@ const images = [
 
 //recupero elementi html
 
-const slides = document.querySelector(".items");
+const slidesEl = document.querySelector(".items");
 const BtnNext = document.querySelector(".next");
 const BtnPrev = document.querySelector(".prev");
 
@@ -67,5 +67,42 @@ for (let i = 0; i < images.length; i++) {
         <img src="${currentImage}">
     </div>`;
 
-    slides.innerHTML += slide;
+    slidesEl.innerHTML += slide;
 }
+
+//tasto prev
+
+BtnPrev.addEventListener(
+    "click",
+    function () {
+
+        const slides = document.querySelectorAll(".item");
+        slides[activeImage].classList.remove("active");
+
+        activeImage--
+
+        if (activeImage < 0) {
+            activeImage = slides.length - 1;
+        }
+
+        slides[activeImage].classList.add("active");
+    }
+)
+
+//tatso next
+BtnNext.addEventListener(
+    "click",
+    function () {
+
+        const slides = document.querySelectorAll(".item");
+        slides[activeImage].classList.remove("active");
+
+        activeImage++
+
+        if (activeImage >= slides.length) {
+            activeImage = 0;
+        }
+
+        slides[activeImage].classList.add("active");
+    }
+)
